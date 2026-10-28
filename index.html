@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kusanya – Event Booking</title>
+ <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="#home">Kusanya</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">Menu</button>
+      <nav class="links" id="links">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#book">Book tickets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">Dark mode</button>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT (we add sections here in the next steps) -->
+<main>
+  <div id="homeView">
+  <!-- HERO / BANNER -->
+  <section id="home" class="hero">
+    <div class="wrap hero-grid"></div>  
+      <div>
+        <h1>Find it. Book it. Be there.</h1>
+        <p class="lead">
+          Concerts, workshops, seminars and festivals across Nairobi and beyond.
+          Pick an event and book your seats in under a minute.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#events">Browse events</a>
+          <a class="btn btn-outline" href="#book">Book tickets</a>
+        </div>
+      </div>
+
+     <div class="hero-card" id="nextEvent"></div>
+    </div>
+  </section>
+  </section>
+
+  <!-- EVENT CATEGORIES -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Browse by category</h2>
+      <div class="cats">
+        <a class="cat" href="#events"><b>Music</b><small>Concerts and live shows</small></a>
+        <a class="cat" href="#events"><b>Workshop</b><small>Learn by doing</small></a>
+        <a class="cat" href="#events"><b>Seminar</b><small>Talks and panels</small></a>
+        <a class="cat" href="#events"><b>Festival</b><small>Multi-day experiences</small></a>
+        <a class="cat" href="#events"><b>Sports</b><small>Runs and matches</small></a>
+        <a class="cat" href="#events"><b>Food</b><small>Tastings and fairs</small></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED EVENTS -->
+<section class="section">
+  <div class="wrap">
+    <h2>Featured events</h2>
+    <div class="grid" id="featured"></div>
+  </div>
+</section>
+
+<!-- ALL EVENTS -->
+<section id="events" class="section">
+  <div class="wrap">
+    <h2>All events</h2>
+
+    <div class="filters">
+      <input id="search" type="search" placeholder="Search events by name" aria-label="Search events by name">
+
+      <select id="filterCategory" aria-label="Category">
+        <option value="">All categories</option>
+        <option>Music</option>
+        <option>Workshop</option>
+        <option>Seminar</option>
+        <option>Festival</option>
+        <option>Sports</option>
+        <option>Food</option>
+      </select>
+
+      <select id="filterType" aria-label="Type">
+        <option value="">Any type</option>
+        <option>In person</option>
+        <option>Online</option>
+      </select>
+
+      <select id="filterDate" aria-label="Date">
+        <option value="">Any date</option>
+        <option value="30">Next 30 days</option>
+        <option value="60">Next 60 days</option>
+        <option value="free">Free events</option>
+      </select>
+
+      <button class="btn btn-outline" id="clearBtn" type="button">Clear</button>
+    </div>
+
+    <p class="muted" id="count" aria-live="polite"></p>
+    <div class="grid" id="list"></div>
+  </div>
+</section>
+</div>
+
+  <!-- EVENT DETAILS PAGE -->
+  <div id="detailView" hidden>
+    <section class="section">
+      <div class="wrap" id="detail"></div>
+    </section>
+  </div>
+
+<!-- BOOKING PAGE -->
+<div id="bookView" hidden>
+  <section class="section">
+    <div class="wrap narrow">
+
+      <div id="bookFormWrap">
+        <h2>Book your tickets</h2>
+        <form id="bookForm" class="panel" novalidate>
+
+          <label for="bkEvent">Event</label>
+          <select id="bkEvent"></select>
+          <div class="error" id="err-bkEvent"></div>
+
+          <label for="bkName">Full name</label>
+          <input id="bkName" type="text" autocomplete="name">
+          <div class="error" id="err-bkName"></div>
+
+          <label for="bkEmail">Email</label>
+          <input id="bkEmail" type="email" autocomplete="email">
+          <div class="error" id="err-bkEmail"></div>
+
+          <label for="bkPhone">Phone number</label>
+          <input id="bkPhone" type="tel" autocomplete="tel" placeholder="+254 7XX XXX XXX">
+          <div class="error" id="err-bkPhone"></div>
+
+          <label>Number of tickets</label>
+          <div class="stepper">
+            <button type="button" id="minus" aria-label="Fewer tickets">−</button>
+            <output id="qty">1</output>
+            <button type="button" id="plus" aria-label="More tickets">+</button>
+          </div>
+
+          <div class="total"><span>Total</span><span id="total">KES 0</span></div>
+          <button class="btn full" type="submit">Confirm booking</button>
+        </form>
+      </div>
+
+      <div id="bookDone" hidden></div>
+
+    </div>
+  </section>
+</div>  
+
+
+</main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="wrap footer-grid">
+      <div>
+        <strong>Kusanya</strong>
+        <p>Event booking made simple.<br>hello@kusanya.example</p>
+      </div>
+      <div>
+        <strong>Explore</strong>
+        <a href="#events">Events</a>
+        <a href="#book">Book tickets</a>
+      </div>
+      <div>
+        <strong>Follow us</strong>
+        <a href="#">Instagram</a>
+        <a href="#">X (Twitter)</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 Kusanya. Student project.</p>
+  </footer>
+
+  <script src="js/events.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
