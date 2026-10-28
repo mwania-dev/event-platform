@@ -4,7 +4,7 @@ A responsive event booking website where users can browse events, view details
 and book tickets online. Built with HTML, CSS and JavaScript only.
 
 **Author:** [Annceta]
-**Live demo:** [add your link after Step 9E]
+**Live demo:** [ https://mwania-dev.github.io/event-platform/]
 
 ## Features
 - Homepage with hero banner, event categories and call-to-action buttons
